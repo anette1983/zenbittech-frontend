@@ -13,7 +13,7 @@ export const StyledHero = styled.section`
   /* background-color: rgba(211, 211, 211, 0.5); */
   background-color: #172234;
   background-size: cover;
-  background-position: 50%;
+  /* background-position: 50%; */
   background-repeat: no-repeat;
   height: 100vh;
 
@@ -28,7 +28,9 @@ export const StyledContentWrapper = styled.div`
   width: 75%;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 297px;
+  /* padding-top: 297px; */
+  /* padding-top: calc(50% - 370px); */
+  padding-top: calc((100vh - 270px) / 2);
   margin: 0 auto;
   text-align: center;
   /* display: flex;
@@ -61,8 +63,71 @@ export const StyledContentWrapper = styled.div`
 `;
 
 export const StyledListSection = styled.section`
-  height: 100px;
-  background-color: #172234;
+  padding: 50px 80px;
+  & h2 {
+    color: #b29f7e;
+    /* font-family: Merriweather; */
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2; /* 121.429% */
+  }
+`;
+export const StyledList = styled.ul`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1440px;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+export const StyledLi = styled.li`
+  /* background-image: ${(props) => `url(${props.preview})`}; */
+  position: relative;
+  flex-basis: calc((100% - 20px) / 2);
+`;
+
+export const StyledDealInfoWrap = styled.div`
+  display: flex;
+`;
+
+export const StyledDealTextWrap = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 80px;
+  position: absolute;
+  bottom: 20px;
+  left: 14px;
+  color: #fff;
+
+  color: #fff;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2; /* 122.222% */
+`;
+
+export const StyledDealName = styled.p`
+  /* color: var(--White, #fff); */
+
+  /* Merriweather 20 */
+  font-family: Merriweather;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.7; /* 170% */
+  margin-bottom: 5px;
+`;
+
+export const StyledAdditionalWrap = styled.div`
+  display: flex;
+  gap: 120px;
+`;
+
+export const StyledBottomMargin = styled.p`
+  margin-bottom: 10px;
 `;
 
 export const StyledLink = styled(Link)`

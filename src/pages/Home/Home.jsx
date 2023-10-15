@@ -1,11 +1,40 @@
+import { useEffect, useState } from "react";
 import {
+  StyledAdditionalWrap,
+  StyledBottomMargin,
   StyledContentWrapper,
+  StyledDealInfoWrap,
+  StyledDealName,
+  StyledDealTextWrap,
   StyledHero,
+  StyledLi,
   StyledLink,
+  StyledList,
   StyledListSection,
 } from "./Home.styled";
+import { fetchDeals } from "../../services/api";
+// import deals from "../../../deals.json";
 
 const Home = () => {
+  const [deals, setDeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const getDealsList = async () => {
+    setIsLoading(true);
+    try {
+      const data = await fetchDeals();
+      setDeals(data.result);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getDealsList();
+  }, []);
   return (
     <>
       <StyledHero>
@@ -17,10 +46,50 @@ const Home = () => {
             The chemical compound is negatively charged. Twhile the mass defect
             is
           </p>
-          <StyledLink>Get Started</StyledLink>
+          <StyledLink to="/login">Get Started</StyledLink>
         </StyledContentWrapper>
       </StyledHero>
-      <StyledListSection>open deals list</StyledListSection>
+      <StyledListSection>
+        <h2>Open deals</h2>
+        <StyledList>
+          {deals?.map(
+            ({
+              // id,
+              name,
+              price,
+              ticket,
+              yield: y,
+              daysLeft,
+              sold,
+              preview,
+            }) => (
+              <StyledLi key={name}>
+                <StyledDealInfoWrap>
+                  <div>
+                    <img src={preview} alt={name} />
+                  </div>
+                  <StyledDealTextWrap>
+                    <div>
+                      <StyledDealName>{name}</StyledDealName>
+                      <StyledBottomMargin>{price}</StyledBottomMargin>
+                      <p>Ticket - {ticket}</p>
+                    </div>
+                    <StyledAdditionalWrap>
+                      <div>
+                        <StyledBottomMargin>Yield {y}</StyledBottomMargin>
+                        <p>Days left {daysLeft}</p>
+                      </div>
+
+                      <div>Sold {sold}</div>
+                    </StyledAdditionalWrap>
+                  </StyledDealTextWrap>
+                </StyledDealInfoWrap>
+              </StyledLi>
+            )
+          )}
+        </StyledList>
+        {/* {isLoading && <Loader />} */}
+      </StyledListSection>
     </>
   );
 };

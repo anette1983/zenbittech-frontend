@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import AppBar from "../AppBar/AppBar";
+// import { StyledFooter } from "./Layout.styled";
 // import { StyledContainer, StyledSection } from "./Layout.styled";
 // import { Header } from 'components/Header';
 
@@ -13,7 +14,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer></footer>
+      {/* <StyledFooter></StyledFooter> */}
     </>
   );
 };
