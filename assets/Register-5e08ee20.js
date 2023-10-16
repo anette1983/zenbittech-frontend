@@ -1,0 +1,1 @@
+import{j as r,S as e,b as s,c as t}from"./index-9fce2b06.js";import{F as i}from"./Form-f6c285d1.js";const n=()=>r.jsx(r.Fragment,{children:r.jsxs(e,{children:[r.jsx(s,{}),r.jsx(t,{children:r.jsx(i,{title:"Register"})})]})});export{n as default};
