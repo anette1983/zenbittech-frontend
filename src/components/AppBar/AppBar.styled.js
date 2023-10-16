@@ -2,21 +2,24 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const StyledAppBar = styled.header`
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
-  padding: 18px 80px;
+  padding: 10px 30px;
   background-color: #172234;
   box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.06),
     0px 2px 10px 0px rgba(0, 0, 0, 0.1);
 
-  /* border-bottom: 1px solid #ececec; */
-  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16); */
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 18px 80px;
+  }
 `;
 
 export const StyledLink = styled(Link)`

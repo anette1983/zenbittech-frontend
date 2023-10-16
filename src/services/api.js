@@ -1,8 +1,8 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000/api/deals";
+axios.defaults.baseURL = "https://db-zenbittech-backend.onrender.com/api";
 
 export const fetchDeals = async () => {
-  const response = await axios.get();
+  const response = await axios.get("/deals");
   console.log(response.data.data);
   return response.data.data;
 };

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   StyledAdditionalWrap,
   StyledBottomMargin,
+  StyledContainer,
   StyledContentWrapper,
   StyledDealInfoWrap,
   StyledDealName,
@@ -13,12 +14,12 @@ import {
   StyledListSection,
 } from "./Home.styled";
 import { fetchDeals } from "../../services/api";
-// import deals from "../../../deals.json";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
   const [deals, setDeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const getDealsList = async () => {
     setIsLoading(true);
@@ -35,6 +36,7 @@ const Home = () => {
   useEffect(() => {
     getDealsList();
   }, []);
+
   return (
     <>
       <StyledHero>
@@ -50,45 +52,48 @@ const Home = () => {
         </StyledContentWrapper>
       </StyledHero>
       <StyledListSection>
-        <h2>Open deals</h2>
-        <StyledList>
-          {deals?.map(
-            ({
-              // id,
-              name,
-              price,
-              ticket,
-              yield: y,
-              daysLeft,
-              sold,
-              preview,
-            }) => (
-              <StyledLi key={name}>
-                <StyledDealInfoWrap>
-                  <div>
-                    <img src={preview} alt={name} />
-                  </div>
-                  <StyledDealTextWrap>
+        <StyledContainer>
+          <h2>Open deals</h2>
+          <StyledList>
+            {deals?.map(
+              ({
+                // id,
+                name,
+                price,
+                ticket,
+                yield: y,
+                daysLeft,
+                sold,
+                preview,
+              }) => (
+                <StyledLi key={name}>
+                  <StyledDealInfoWrap>
                     <div>
-                      <StyledDealName>{name}</StyledDealName>
-                      <StyledBottomMargin>{price}</StyledBottomMargin>
-                      <p>Ticket - {ticket}</p>
+                      <img src={preview} alt={name} />
                     </div>
-                    <StyledAdditionalWrap>
+                    <StyledDealTextWrap>
                       <div>
-                        <StyledBottomMargin>Yield {y}</StyledBottomMargin>
-                        <p>Days left {daysLeft}</p>
+                        <StyledDealName>{name}</StyledDealName>
+                        <StyledBottomMargin>{price}</StyledBottomMargin>
+                        <p>Ticket - {ticket}</p>
                       </div>
+                      <StyledAdditionalWrap>
+                        <div>
+                          <StyledBottomMargin>Yield {y}</StyledBottomMargin>
+                          <p>Days left {daysLeft}</p>
+                        </div>
 
-                      <div>Sold {sold}</div>
-                    </StyledAdditionalWrap>
-                  </StyledDealTextWrap>
-                </StyledDealInfoWrap>
-              </StyledLi>
-            )
-          )}
-        </StyledList>
-        {/* {isLoading && <Loader />} */}
+                        <div>Sold {sold}</div>
+                      </StyledAdditionalWrap>
+                    </StyledDealTextWrap>
+                  </StyledDealInfoWrap>
+                </StyledLi>
+              )
+            )}
+          </StyledList>
+        </StyledContainer>
+        {isLoading && <Loader />}
+        {/* {error && <p>{error.message}</p>} */}
       </StyledListSection>
     </>
   );

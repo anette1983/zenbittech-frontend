@@ -8,16 +8,10 @@ export const StyledHero = styled.section`
       rgba(23, 34, 52, 0.6)
     ),
     url(${heroBg});
-  /* background-image: url(${heroBg}); */
-  /* background-color: lightgray; */
-  /* background-color: rgba(211, 211, 211, 0.5); */
   background-color: #172234;
   background-size: cover;
   /* background-position: 50%; */
   background-repeat: no-repeat;
-  height: 100vh;
-
-  /* background: url(${heroBg}), lightgray 50% / cover no-repeat; */
 `;
 
 export const StyledContentWrapper = styled.div`
@@ -28,42 +22,42 @@ export const StyledContentWrapper = styled.div`
   width: 75%;
   padding-left: 0;
   padding-right: 0;
-  /* padding-top: 297px; */
-  /* padding-top: calc(50% - 370px); */
   padding-top: calc((100vh - 270px) / 2);
+  padding-bottom: calc((100vh - 270px) / 2);
   margin: 0 auto;
   text-align: center;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto; */
+
   & h1 {
     color: #fff;
     text-align: center;
-    /* font-family: Merriweather; */
-    font-size: 64px;
+    font-size: 34px;
     font-style: normal;
     font-weight: 700;
     line-height: 1.25; /* 125% */
     margin-bottom: 10px;
+    @media screen and (min-width: 768px) {
+      font-size: 64px;
+    }
   }
   & p {
     color: #fff;
     text-align: center;
     font-family: Lato;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.3; /* 133.333% */
     letter-spacing: -0.48px;
     margin-bottom: 30px;
     max-width: 76%;
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
+    }
   }
 `;
 
 export const StyledListSection = styled.section`
-  padding: 50px 80px;
+  padding: 50px 20px;
   & h2 {
     color: #b29f7e;
     /* font-family: Merriweather; */
@@ -72,20 +66,36 @@ export const StyledListSection = styled.section`
     font-weight: 700;
     line-height: 1.2; /* 121.429% */
   }
+  @media screen and (min-width: 1280px) {
+    padding: 50px 80px;
+  }
 `;
+
+export const StyledContainer = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+`;
+
 export const StyledList = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 1440px;
+  /* width: 1440px; */
   gap: 20px;
   margin-top: 20px;
 `;
 
 export const StyledLi = styled.li`
-  /* background-image: ${(props) => `url(${props.preview})`}; */
   position: relative;
-  flex-basis: calc((100% - 20px) / 2);
+  /* flex-basis: calc((100% - 20px) / 2); */
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 530px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 630px;
+  }
 `;
 
 export const StyledDealInfoWrap = styled.div`
@@ -95,7 +105,7 @@ export const StyledDealInfoWrap = styled.div`
 export const StyledDealTextWrap = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 80px;
+  gap: 60px;
   position: absolute;
   bottom: 20px;
   left: 14px;
@@ -103,16 +113,17 @@ export const StyledDealTextWrap = styled.div`
 
   color: #fff;
   font-family: Lato;
-  font-size: 18px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.2; /* 122.222% */
+  @media screen and (min-width: 768px) {
+    gap: 80px;
+    font-size: 18px;
+  }
 `;
 
 export const StyledDealName = styled.p`
-  /* color: var(--White, #fff); */
-
-  /* Merriweather 20 */
   font-family: Merriweather;
   font-size: 20px;
   font-style: normal;

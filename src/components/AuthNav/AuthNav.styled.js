@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const commonLinkStyles = `
+export const commonLinkStyles = `
 display: flex;
   justify-content: center;
   align-items: center;

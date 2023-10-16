@@ -6,11 +6,14 @@ import {
   StyledP,
   StyledTitle,
 } from "./Form.styled";
+import { useDispatch } from "react-redux";
+import { login, register } from "../../redux/auth/operations";
 
+// eslint-disable-next-line react/prop-types
 export const Form = ({ title }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(title);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,9 +26,13 @@ export const Form = ({ title }) => {
       email,
       password,
     };
-
-    // dispatch(addContact(newContact));
-    // handleClose();
+    console.log(newUser);
+    if (title === "Login") {
+      dispatch(login(newUser));
+    }
+    if (title === "Register") {
+      dispatch(register(newUser));
+    }
 
     reset();
   };
@@ -46,9 +53,6 @@ export const Form = ({ title }) => {
             name="email"
             value={email}
             placeholder="Email"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            // title="Name may contain only letters, apostrophe, dash and spaces."
-            // required
           />
         </label>
         <label>
@@ -59,9 +63,6 @@ export const Form = ({ title }) => {
             name="password"
             value={password}
             placeholder="Password"
-            // pattern="^\+?\d{1,4}?\(?\d{1,3}?\)?\d{1,4}?\d{1,4}?\d{1,9}$"
-            // title="Phone number must be digits and can start with +"
-            // required
           />
         </label>
         {title === "Login" && (
