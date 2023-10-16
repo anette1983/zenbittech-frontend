@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 export const StyledAppBar = styled.header`
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
   gap: 10px;
   align-items: center;
   padding: 10px 30px;

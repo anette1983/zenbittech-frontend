@@ -11,6 +11,7 @@ export const StyledHero = styled.section`
   background-color: #172234;
   background-size: cover;
   /* background-position: 50%; */
+  background-position: center top;
   background-repeat: no-repeat;
 `;
 
@@ -22,10 +23,11 @@ export const StyledContentWrapper = styled.div`
   width: 75%;
   padding-left: 0;
   padding-right: 0;
-  padding-top: calc((100vh - 270px) / 2);
-  padding-bottom: calc((100vh - 270px) / 2);
+  /* padding-top: calc((100vh - 270px) / 2);
+  padding-bottom: calc((100vh - 270px) / 2); */
   margin: 0 auto;
   text-align: center;
+  height: 1024px;
 
   & h1 {
     color: #fff;
@@ -125,16 +127,22 @@ export const StyledDealTextWrap = styled.div`
 
 export const StyledDealName = styled.p`
   font-family: Merriweather;
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.7; /* 170% */
   margin-bottom: 5px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const StyledAdditionalWrap = styled.div`
   display: flex;
-  gap: 120px;
+  gap: 80px;
+  @media screen and (min-width: 768px) {
+    gap: 120px;
+  }
 `;
 
 export const StyledBottomMargin = styled.p`
